@@ -1,0 +1,38 @@
+<body ng-controller="gameCtrl">
+<div class="container">
+
+  <div class="row well well-lg text-center"> 
+    <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1"> 
+      <h1>{{'TIC-TAC-TOE GAME'}}</h1>
+    </div>
+  </div>
+   
+  <div class="row">
+    <div class="col-md-6 col-md-offset-2 col-xs-10 col-xs-offset-1">
+	   <table>
+	   <caption>{{"Now is " + currentFieldType + ' turn'}}</caption>
+		  <tr ng-repeat="row in board">
+		    <td ng-repeat="cell in row" ng-click="move(cell)">
+            {{cell.value}}
+          </td>   		  
+		  </tr>
+   	</table>     
+    </div>
+    <div class="col-md-4 col-md-offset-0 col-xs-10 col-xs-offset-1">
+      <p>{{'Chose starting player'}}</p>
+      <button class="btn-default" ng-model="btn1" ng-click="setPlayer('x'); btn1=true" ng-class="{'active': btn1}">X</button>
+      <button class="btn-default" ng-model="btn2" ng-click="setPlayer('o'); btn2=true" ng-class="{'active': btn2}">O</button>
+      <button class="btn-default comp" ng-model="btn3" ng-click="playingWithComputer(); btn3=true" ng-class="{'active': btn3}">Play with computer</button>
+      <button class="btn-danger" ng-click="board=generateBoard()">RESET</button>
+    </div> 
+  </div>
+</div>
+
+<div class="foot">
+  <div class="container">
+    <div class="col-sm-4 col-sm-offset-4">
+    <p class="pFooter">Copyright©2016 Magdalena Miranowicz, All Rights Reserved</p>
+    </div>
+  </div>
+</div>
+</body>
